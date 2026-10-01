@@ -1,0 +1,103 @@
+/* =====================================================================
+   Public Library - shared stylesheet (ported from LMS1.css, book_pag.css,
+   text.css, footer.css and about.css; colours and branding unchanged)
+   Blue #2c7ad6  |  green menu strip  |  black/green admin header
+   ===================================================================== */
+:root { --lib-blue:#2c7ad6; --lib-footer:#238aff; }
+body { font-family: Arial, Helvetica, sans-serif; background:#f4f6f9; }
+
+/* ---------- top bar + menu (public pages) ---------- */
+#top { min-height:35px; background:var(--lib-blue); line-height:35px; padding:0 20px 0 100px; word-spacing:10px; }
+#top a { color:#fff; text-decoration:none; }
+#top .social { float:right; padding:0 7px; }
+#menu { background:green; display:flex; flex-wrap:wrap; }
+#logo { flex:0 0 40%; background:#fff; text-align:center; line-height:65px; font-size:40px; }
+#menu1 { flex:1 1 60%; background:#fff; }
+#menu1 ul { list-style:none; margin:0; padding:10px 0 0 100px; }
+#menu1 li { display:inline-block; width:130px; height:45px; text-align:center; line-height:45px; color:#000; font-size:20px; }
+#menu1 a { text-decoration:none; color:#000; }
+#menu1 li:hover { background:var(--lib-blue); color:#fff; transition:all ease 1s; border-radius:3px; }
+#menu1 li:hover, #menu1 a:hover li { color:#fff; }
+
+/* ---------- hero slider with the login card ---------- */
+#slider { min-height:640px; width:100%; background:url(../images/library4.jpg) center/cover fixed;
+          animation:slider 20s infinite alternate; display:flex; }
+@keyframes slider {
+  from { background:url(../images/library3.jpg) center/cover fixed; }
+  to   { background:url(../images/library1.jpg) center/cover fixed; }
+}
+#x { flex:0 0 40%; background:rgba(0,0,0,.4); font-size:41px; color:#fff; text-align:center; padding-top:250px; }
+#x p { font-size:15px; color:#fff; overflow:hidden; }
+#x p::after { content:"BOOKS"; display:inline-block; width:0; color:var(--lib-blue);
+              animation:typing 4s steps(10,end) infinite alternate; }
+@keyframes typing { 0%,50% { width:0; } 100% { width:5ch; } }
+#y { flex:1 1 60%; background:rgba(0,0,0,.4); display:flex; align-items:center; justify-content:center; padding:30px 15px; }
+#l { width:80%; max-width:520px; background:rgba(255,255,255,.75); border-radius:10px; padding:20px 25px; }
+#l:hover { background:linear-gradient(45deg, rgba(50,177,40,.6), rgba(255,255,255,.75)); }
+#l h1 { text-align:center; color:var(--lib-blue); }
+#l h3 { text-align:center; color:red; }
+
+/* plain public page (registration / about / errors) */
+.public-page { background:url(../images/library0.jpg) center/cover fixed; min-height:600px; padding:30px 0; }
+.public-card { background:rgba(255,255,255,.93); border-radius:10px; padding:25px 30px; }
+
+/* ---------- footer with animated waves ---------- */
+.site-footer { position:relative; margin-top:100px; background:var(--lib-footer); color:#fff; padding:20px 50px 0; text-align:center; }
+.site-footer .wave { position:absolute; left:0; width:100%; height:100px; top:-100px; background:url(../images/footerwave.png); background-size:1000px 100px; }
+.site-footer #wave1 { z-index:1000; opacity:1;    bottom:0;    animation:animatedWave 4s linear infinite; }
+.site-footer #wave2 { z-index:999;  opacity:.75;  bottom:10px; animation:animatedWave2 4s linear infinite; }
+.site-footer #wave3 { z-index:998;  opacity:.5;   bottom:20px; animation:animatedWave 3s linear infinite; }
+.site-footer #wave4 { z-index:1000; opacity:.25;  bottom:30px; animation:animatedWave2 2s linear infinite; }
+@keyframes animatedWave  { 0% { background-position-x:1000px; } 100% { background-position-x:0; } }
+@keyframes animatedWave2 { 0% { background-position-x:0; } 100% { background-position-x:1000px; } }
+.site-footer .footer-icons { height:48px; object-fit:contain; margin:0 20px; transition:all ease-out 150ms; }
+.site-footer .footer-icons:hover { transform:translateY(-8px); }
+.site-footer a { color:#fff; text-decoration:none; }
+.site-footer .developed { background:#000; color:#fff; padding:6px; margin:20px -50px 0; }
+
+/* ---------- admin / student header ---------- */
+.menu-section { background:linear-gradient(45deg,#54d400 48%,#1b1e21 48%); border-bottom:5px solid #9170E4; padding:12px 0; }
+.menu-section img { max-height:60px; }
+.btn-logout { background:#f04141; color:#000; border:none; border-radius:5px; padding:10px 20px; box-shadow:0 0 10px #ccc; }
+.btn-logout:hover { background:#d63031; color:#000; }
+.main-nav { background:#f8f9fa; border-bottom:2px solid #000; }
+.main-nav .nav-link { color:#333; font-weight:bold; padding:.9rem .9rem; }
+.main-nav .dropdown-item { color:#007bff; }
+.main-nav .dropdown-item:hover { background:#007bff; color:#fff; }
+@media (min-width:992px) { .main-nav .dropdown:hover > .dropdown-menu { display:block; margin-top:0; } }
+
+.header-line { color:#333; font-size:20px; font-weight:700; text-transform:uppercase; padding:19px 0; margin-bottom:20px; border-bottom:1px solid #baa7a7; }
+.header-line .accent { color:var(--lib-blue); }
+.back-widget-set { padding:25px 15px; border-radius:6px; }
+.back-widget-set i { display:block; margin-bottom:8px; }
+.back-widget-set h4 { font-size:2rem; }
+.back-widget-set .footer1 { margin-top:12px; }
+.panel-box { background:#fff; border:1px solid #bce8f1; border-radius:4px; box-shadow:0 1px 1px rgba(0,0,0,.05); }
+.panel-box > .panel-head { background:#d9edf7; color:#31708f; padding:12px 15px; border-bottom:1px solid #bce8f1; font-weight:bold; }
+.panel-box > .panel-body { padding:18px 20px; }
+.book-thumb { width:60px; height:60px; object-fit:cover; border-radius:4px; }
+.book-cover { max-width:200px; max-height:260px; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,.25); }
+.student-thumb { width:40px; height:40px; object-fit:cover; border-radius:50%; }
+.table thead th { white-space:nowrap; }
+.action-col { white-space:nowrap; }
+.not-returned { color:red; }
+
+/* ---------- about page team cards ---------- */
+.team-wrap { display:flex; flex-wrap:wrap; justify-content:center; gap:80px 30px; padding:100px 15px 60px; }
+.team-card { width:250px; min-height:200px; padding:70px 16px 16px; background:#fff; border-radius:8px; position:relative;
+             text-align:center; box-shadow:0 8px 8px rgba(0,0,0,.15); }
+.team-card img { width:120px; height:120px; object-fit:cover; border-radius:50%; position:absolute; top:0; left:50%; transform:translate(-50%,-50%);
+                 border:4px solid #fff; box-shadow:0 4px 10px rgba(0,0,0,.25); }
+.team-card .name { font-weight:bold; color:#54677c; margin:0; }
+.team-card p { color:#54677c; margin:0 0 4px; }
+
+@media (max-width:991px) {
+  #logo, #menu1 { flex:1 1 100%; }
+  #menu1 ul { padding-left:10px; }
+  #menu1 li { width:auto; padding:0 12px; font-size:16px; }
+  #slider { flex-direction:column; }
+  #x { padding:60px 10px 30px; font-size:30px; }
+  #top { padding-left:15px; }
+  .site-footer { padding:20px 15px 0; }
+  .site-footer .developed { margin:20px -15px 0; }
+}
